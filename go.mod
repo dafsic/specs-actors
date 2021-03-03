@@ -1,4 +1,4 @@
-module github.com/filecoin-project/specs-actors/v3
+module github.com/dafisc/specs-actors/v3
 
 go 1.13
 
