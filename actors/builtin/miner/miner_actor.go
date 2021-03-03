@@ -765,6 +765,7 @@ func (a Actor) PreCommitSector(rt Runtime, params *PreCommitSectorParams) *abi.E
 			rt.Abortf(exitcode.ErrInsufficientFunds, "insufficient funds for pre-commit deposit: %v", depositReq)
 		}
 
+		fmt.Printf("1111:depositReq %v\n",depositReq)
 		err = st.AddPreCommitDeposit(depositReq)
 		builtin.RequireNoErr(rt, err, exitcode.ErrIllegalState, "failed to add pre-commit deposit %v", depositReq)
 
@@ -1028,6 +1029,7 @@ func (a Actor) ConfirmSectorProofsValid(rt Runtime, params *builtin.ConfirmSecto
 			rt.Abortf(exitcode.ErrInsufficientFunds, "insufficient funds for aggregate initial pledge requirement %s, available: %s", totalPledge, unlockedBalance)
 		}
 
+		fmt.Printf("1111:totalPledge %v\n",totalPledge)
 		err = st.AddInitialPledge(totalPledge)
 		builtin.RequireNoErr(rt, err, exitcode.ErrIllegalState, "failed to add initial pledge %v", totalPledge)
 		err = st.CheckBalanceInvariants(rt.CurrentBalance())
